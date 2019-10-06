@@ -1,0 +1,35 @@
+{
+  "name": "arql-op",
+  "version": "1.0.0",
+  "description": "Tiny library for functional composition of ArQL operators",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "version": "npx @pika/pack"
+  },
+  "author": "",
+  "license": "MIT",
+  "@pika/pack": {
+    "pipeline": [
+      [
+        "@pika/plugin-ts-standard-pkg"
+      ],
+      [
+        "@pika/plugin-build-node"
+      ],
+      [
+        "@pika/plugin-build-web"
+      ],
+      [
+        "@pika/plugin-build-deno"
+      ]
+    ]
+  },
+  "devDependencies": {
+    "@pika/plugin-build-deno": "0.6.1",
+    "@pika/plugin-build-node": "0.6.1",
+    "@pika/plugin-build-web": "0.6.1",
+    "@pika/plugin-ts-standard-pkg": "0.6.1",
+    "@pika/types": "0.6.1",
+    "typescript": "3.6.3"
+  }
+}
