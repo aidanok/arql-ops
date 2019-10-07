@@ -62,18 +62,19 @@ const results = await arweave.arql(myQuery);
 const query = and(
   equals('my-super-tag', '1'),
   or(                                     
-    equals('color', 'red'), 
-    equals('color', 'blue'),
-    equals('color', 'purple'),
-    equals('color', 'orange'),
-    equals('color', 'white'),
-    equals('color', 'black'),
+    equals('my-color-tag', 'red'), 
+    equals('my-color-tag', 'blue'),
+    equals('my-color-tag', 'purple'),
+    equals('my-color-tag', 'orange'),
+    equals('my-color-tag', 'white'),
+    equals('my-color-tag', 'black'),
   )
-)
+);
 
 ```
 
-This will produce a query that matches and TX with the tag 'my-super-tag' and any of the color values that match.
+This will produce a query that matches TXs with the tag 'my-super-tag'=1 , AND any of the color values that match 'my-color-tag' 
+
 
 OUTPUT JSON:
 
@@ -89,40 +90,40 @@ OUTPUT JSON:
     "op": "or",
     "expr1": {
       "op": "equals",
-      "expr1": "color",
+      "expr1": "my-color-tag",
       "expr2": "red"
     },
     "expr2": {
       "op": "or",
       "expr1": {
         "op": "equals",
-        "expr1": "color",
+        "expr1": "my-color-tag",
         "expr2": "blue"
       },
       "expr2": {
         "op": "or",
         "expr1": {
           "op": "equals",
-          "expr1": "color",
+          "expr1": "my-color-tag",
           "expr2": "purple"
         },
         "expr2": {
           "op": "or",
           "expr1": {
             "op": "equals",
-            "expr1": "color",
+            "expr1": "my-color-tag",
             "expr2": "orange"
           },
           "expr2": {
             "op": "or",
             "expr1": {
               "op": "equals",
-              "expr1": "color",
+              "expr1": "my-color-tag",
               "expr2": "white"
             },
             "expr2": {
               "op": "equals",
-              "expr1": "color",
+              "expr1": "my-color-tag",
               "expr2": "black"
             }
           }
