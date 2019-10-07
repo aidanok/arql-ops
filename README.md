@@ -51,7 +51,7 @@ const results = await arweave.arql(myQuery);
 ```
 
 
-Works fine with only style `require()` and Javascript too. 
+Works fine with `require()` style and Javascript too. 
 
 
  
