@@ -1,5 +1,5 @@
 {
-  "name": "arql-op",
+  "name": "arql-ops",
   "version": "1.0.0",
   "description": "Tiny library for functional composition of ArQL operators",
   "scripts": {
