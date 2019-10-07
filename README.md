@@ -3,7 +3,17 @@
 
 Very simple library to build ArQL for queries for Arweave <https://www.github.com/ArweaveTeam/arweave-js>
 
-Also wanted to try out <https://github.com/pikapkg/pack>
+Packged up with <https://github.com/pikapkg/pack>, for web, node, typescript and even deno! 
+
+For fun, it's published on the on the arweave blockchain itself :)
+
+`npm install https://kybjhezuyftg.arweave.net/ITTPLYoxidZzAJP50FQ03QJUSkkh9iKHcmMcLZOvqtQ` 
+
+PROS: exact dependency pinning 
+CONS: not exactly easy to remember install line :D and manual upgrades 
+
+Will be published to npm too. 
+
 
 ### Usage examples
 
@@ -41,3 +51,8 @@ const results = await arweave.arql(myQuery);
 
 ```
 
+
+Works fine with only style `require()` and Javascript too. 
+
+
+ 
