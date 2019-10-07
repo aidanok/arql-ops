@@ -1,18 +1,22 @@
 
 ## ArQL ops
 
-Very simple library to build ArQL for queries for Arweave <https://www.github.com/ArweaveTeam/arweave-js>
+Very tiny (53 lines including whitespace) library to build ArQL for queries for Arweave <https://www.github.com/ArweaveTeam/arweave-js>
 
-Packged up with <https://github.com/pikapkg/pack>, for web, node, typescript and even deno! 
+Packaged up with <https://github.com/pikapkg/pack>, for web, node, typescript and even deno! 
 
 For fun, it's published on the on the arweave blockchain itself :)
 
 `npm install https://kybjhezuyftg.arweave.net/ITTPLYoxidZzAJP50FQ03QJUSkkh9iKHcmMcLZOvqtQ` 
 
-- PROS: exact dependency pinning 
-- CONS: not exactly easy to remember install line :D and manual upgrades 
+- PROS: exact dependency pinning, immutable blockchain so packaged can't be removed or 
+        replaced with something malicious.
+- CONS: not exactly easy to remember install line :D manual upgrades
 
-Will be published to npm soon.
+This works because npm can install a .tgz file from any url, so it was just a matter of running `pika build`, tar'ing the pkg/ folder it produces, and uploading to arweave.
+
+Will be published to npm soon, should work fine with any module system/javascript/typescript, require() or import.
+
 
 ### Usage examples
 
@@ -34,6 +38,7 @@ const results = await arweave.arql(myQuery);
 
 ```
 
+
 With spread operators:
 
 ```typescript
@@ -50,8 +55,87 @@ const results = await arweave.arql(myQuery);
 
 ```
 
+`and()` and `or()` will take any number of arguments and produce the correct json of nested expressions: 
 
-Works fine with `require()` style and Javascript too. 
+```typescript
+
+const query = and(
+  equals('my-super-tag', '1'),
+  or(                                     
+    equals('color', 'red'), 
+    equals('color', 'blue'),
+    equals('color', 'purple'),
+    equals('color', 'orange'),
+    equals('color', 'white'),
+    equals('color', 'black'),
+  )
+)
+
+```
+
+This will produce a query that matches and TX with the tag 'my-super-tag' and any of the color values that match.
+
+OUTPUT JSON:
+
+```json
+{
+  "op": "and",
+  "expr1": {
+    "op": "equals",
+    "expr1": "my-super-tag",
+    "expr2": "1"
+  },
+  "expr2": {
+    "op": "or",
+    "expr1": {
+      "op": "equals",
+      "expr1": "color",
+      "expr2": "red"
+    },
+    "expr2": {
+      "op": "or",
+      "expr1": {
+        "op": "equals",
+        "expr1": "color",
+        "expr2": "blue"
+      },
+      "expr2": {
+        "op": "or",
+        "expr1": {
+          "op": "equals",
+          "expr1": "color",
+          "expr2": "purple"
+        },
+        "expr2": {
+          "op": "or",
+          "expr1": {
+            "op": "equals",
+            "expr1": "color",
+            "expr2": "orange"
+          },
+          "expr2": {
+            "op": "or",
+            "expr1": {
+              "op": "equals",
+              "expr1": "color",
+              "expr2": "white"
+            },
+            "expr2": {
+              "op": "equals",
+              "expr1": "color",
+              "expr2": "black"
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+```
+
+
+
 
 
  
