@@ -9,8 +9,8 @@ For fun, it's published on the on the arweave blockchain itself :)
 
 `npm install https://kybjhezuyftg.arweave.net/ITTPLYoxidZzAJP50FQ03QJUSkkh9iKHcmMcLZOvqtQ` 
 
-- PROS: exact dependency pinning, immutable blockchain so packaged can't be removed or 
-        replaced with something malicious.
+- PROS: exact dependency pinning, immutable blockchain so package can't be removed or 
+        replaced with something malicious. (although npm lockfiles and exact versions will take of this too)
 - CONS: not exactly easy to remember install line :D manual upgrades
 
 This works because npm can install a .tgz file from any url, so it was just a matter of running `pika build`, tar'ing the pkg/ folder it produces, and uploading to arweave.
@@ -55,7 +55,7 @@ const results = await arweave.arql(myQuery);
 
 ```
 
-`and()` and `or()` will take any number of arguments and produce the correct json of nested expressions: 
+`and()` and `or()` will take any number of arguments and produce the correct Json of nested expressions: 
 
 ```typescript
 
@@ -76,7 +76,7 @@ const query = and(
 This will produce a query that matches TXs with the tag 'my-super-tag'=1 , AND any of the color values that match 'my-color-tag' 
 
 
-OUTPUT JSON:
+Output Json:
 
 ```json
 {
