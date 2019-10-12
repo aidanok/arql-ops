@@ -15,7 +15,6 @@ For fun, it's published on the on the arweave blockchain itself :)
 
 This works because npm can install a .tgz file from any url, so it was just a matter of running `pika build`, tar'ing the pkg/ folder it produces, and uploading to arweave.
 
-Will be published to npm soon, should work fine with any module system/javascript/typescript, require() or import.
 
 
 ### Usage examples
